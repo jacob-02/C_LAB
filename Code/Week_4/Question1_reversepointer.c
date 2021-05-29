@@ -1,9 +1,22 @@
 #include <stdio.h>
-#include "function.h"
+// #include "function.h"
 
-int reverse_pointer(int n, int array[])
-{    
-    printf("Array elements :\n");
-    for(int i = n-1; i >= 0; --i)
-        printf("%d ", array[i]);
+void reversearray(int *p, int n)
+{
+	int *first = p;
+	int *last = p+n-1;
+
+	while(first<last)
+	{
+		int temp = *first;
+		*first = *last;
+		*last = temp;
+		first++;
+		last--;
+	}
+	printf("Reversed array elements are: \n");
+	for(int i=0; i<n; i++)
+		printf("%d ", *p++);
+    
+    printf("\n");
 }

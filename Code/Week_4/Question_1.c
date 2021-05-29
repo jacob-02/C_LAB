@@ -2,7 +2,7 @@
 #include "Question1_reverseindex.c"
 #include "Question1_reversepointer.c"
 
-int main()
+void main()
 {
     printf("Enter the size of the array :\n");
     int n;
@@ -15,6 +15,8 @@ int main()
     for(int i = 0; i < n; i++)
         scanf("%d", &array[i]);
     
-    reverse_index(n, array);
-    printf("\n");
+    // reverse_index(n, array);
+    // printf("\n");
+
+    reversearray(array, n);
 }
