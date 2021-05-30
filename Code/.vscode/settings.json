@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "question1_reverseindex.c": "cpp"
+        "question1_reverseindex.c": "cpp",
+        "stdio.h": "c"
     }
 }

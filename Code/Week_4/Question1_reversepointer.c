@@ -14,7 +14,7 @@ void reversearray(int *p, int n)
 		first++;
 		last--;
 	}
-	printf("Reversed array elements are: \n");
+	printf("Reversed array elements using pointers are: \n");
 	for(int i=0; i<n; i++)
 		printf("%d ", *p++);
     

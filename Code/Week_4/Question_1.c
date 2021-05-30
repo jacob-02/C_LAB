@@ -15,8 +15,8 @@ void main()
     for(int i = 0; i < n; i++)
         scanf("%d", &array[i]);
     
-    // reverse_index(n, array);
-    // printf("\n");
+    reverse_index(n, array);
+    printf("\n");
 
     reversearray(array, n);
 }
