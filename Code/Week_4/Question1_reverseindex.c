@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "function.h"
 
 int reverse_index(int n, int array[])
 {   
