@@ -1,38 +1,13 @@
 #include <stdio.h>
-int prime(int n);
+#include "Question3_power.c"
 
 int main()
 {
-    int n;
+    int n, pow;
+    printf("Enter the number and the power that you want to calculate for :\n");
+    scanf("%d%d", &n, &pow);
 
-    printf("Enter the number that you want to check if it is prime: \n");
-    scanf("%d", &n);
+    int ans = ppow(n, pow);
 
-    int count = prime(++n);
-    
-    while (count != 0)
-        count = prime(++n);
-
-    printf("The next prime number is %d\n", n);   
-}
-
-int prime(int n)
-{
-    int count = 0;
-
-    if (n == 0 || n == 1)
-    {
-        printf("It is neither a prime nor composite\n");
-        return 2;
-    }
-
-    else
-        for (int i = 2; i < n; i++)
-            if (n % i == 0)
-            {
-                count = 1;
-                break;
-            }
-
-    return count;
+    printf("The power of %d to %d is : %d\n", n, pow, ans);
 }
