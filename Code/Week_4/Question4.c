@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "Question3_power.c"
+#include "Question4_power.c"
 
 int main()
 {
