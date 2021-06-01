@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "question1_reverseindex.c": "cpp",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "question3_uniqueelement.h": "c"
     }
 }
