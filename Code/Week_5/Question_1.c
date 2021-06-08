@@ -1,19 +1,19 @@
 #include <stdio.h>
-#include <string.h>
-
+#include "Question1_palindrome.c"
 int main()
 {
-    char word[] = "";
-    printf("Enter the string \n");
-    scanf("%s", word);
-    printf("%s\n", word);
+    char s[20];
+    char rev[20];
 
-    char temp[] = "";
+    printf("Enter the string\n");
+    scanf("%s", s);
 
-    for (int j = 0; j < strlen(word); j++)
-    {
-        word[strlen(word) - j] = word[j];
-    }
+    reverse_string(s, rev);
 
-    printf("The word reversed is %s\n", word);
+    int r = check_equal(s, rev);
+    
+    if (r == 0)
+        printf("%s is a palindrome\n");
+    else
+        printf("%s is not a palindrome\n");
 }
