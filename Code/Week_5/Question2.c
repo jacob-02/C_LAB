@@ -1,19 +1,25 @@
 #include <stdio.h>
-#include "Question2_replace.c"
-
+#include <stdlib.h>
 int main()
 {
-    char str1[20], c1, c2;
-    printf("Enter a string\n");
-    scanf("%[^\n]s",str1);
-    printf("Enter the character to replace\n");
-    fflush(stdin);
-    c1=getchar();
-    fflush(stdin);
-    printf("Enter the character to be replaced with\n");
-    c2=getchar();
-    printf("Before replace %s\n", str1);    
-    replacechar(str1,c1,c2);
-    printf("After replace %s\n", str1);
+    char character;
+    char element;
+    char a[20];
+
+    printf("Enter the string\n");
+    scanf("%s", a);
+    printf("Enter the character to be replaced\n");
+    scanf("%s", &element);
+    printf("Enter the character that replaces the above character\n");
+    scanf("%s", &character);
+    
+    for (int i = 0; a[i] != '\0'; i++)
+    {
+        if (a[i] == element)
+        {
+            a[i] = character;
+        }
+    }
+    printf("%s\n", a);
     return 0;
 }
