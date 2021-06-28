@@ -11,11 +11,11 @@ struct node
     struct component compo;
     struct node *link;
 };
-struct queue
+struct priority_queue
 {
     struct node *head;
 };
-struct node *high(struct queue *p)
+struct node *highest_priority(struct priority_queue *p)
 {
     int priority_value = ((p->head)->compo).priority;
     struct node *temp;
@@ -39,7 +39,7 @@ struct node *high(struct queue *p)
     }
     return temp;
 }
-struct node *low(struct queue *p)
+struct node *lowest_priority(struct priority_queue *p)
 {
     struct node *temp;
     int priority_value = ((p->head)->compo).priority;
@@ -63,7 +63,7 @@ struct node *low(struct queue *p)
     }
     return temp;
 }
-void enqueue(struct queue *p)
+void enqueue(struct priority_queue *p)
 {
     char det[20];
     int priority;
@@ -74,11 +74,11 @@ void enqueue(struct queue *p)
     struct node *temp;
     struct node *newnode;
     struct node *new;
-    new = low(p);
+    new = lowest_priority(p);
     newnode = (struct node *)malloc(sizeof(struct node));
     temp = (struct node *)malloc(sizeof(struct node));
     temp->link = p->head;
-    while (temp->link != low(p))
+    while (temp->link != lowest_priority(p))
     {
         temp = temp->link;
     }
@@ -96,17 +96,17 @@ void enqueue(struct queue *p)
         p->head = newnode;
     }
 }
-void dequeue(struct queue *p)
+void dequeue(struct priority_queue *p)
 {
     struct node *temp;
     temp = (struct node *)malloc(sizeof(struct node));
     temp->link = p->head;
-    while (temp->link != high(p))
+    while (temp->link != highest_priority(p))
     {
         temp = temp->link;
     }
     struct node *new;
-    new = high(p);
+    new = highest_priority(p);
     int k = 0;
     if (temp->link == p->head)
     {
@@ -121,7 +121,7 @@ void dequeue(struct queue *p)
         temp->link = new->link;
     }
 }
-void display(struct queue *p)
+void display(struct priority_queue *p)
 {
     struct node *temp;
     temp = p->head;
@@ -131,7 +131,7 @@ void display(struct queue *p)
         temp = temp->link;
     }
 }
-void init(struct queue *p, char head_set[100], int head_priority)
+void init(struct priority_queue *p, char head_set[100], int head_priority)
 {
     struct node *temp;
     temp = (struct node *)malloc(sizeof(struct node));
@@ -141,7 +141,7 @@ void init(struct queue *p, char head_set[100], int head_priority)
 }
 int main()
 {
-    struct queue *p, queue1;
+    struct priority_queue *p, queue1;
     p = &queue1;
     char s[100];
     int n;
@@ -192,4 +192,5 @@ int main()
         printf("4.exit\n");
         scanf("%s", choice);
     }
+    return 0;
 }
