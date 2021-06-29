@@ -3,7 +3,7 @@
 int main()
 {
     int n;
-    printf("Enter the number of rows of pascal's triangle that you\n");
+    printf("Enter the number of rows of pascal's triangle that you need\n");
     scanf("%d", &n);
 
     int array[n][n];
