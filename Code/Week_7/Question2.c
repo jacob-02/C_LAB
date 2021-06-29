@@ -17,21 +17,21 @@ struct queue
 };
 struct node *high(struct queue *p)
 {
-    int priority_value = ((p->head)->compo).priority;
+    int value = ((p->head)->compo).priority;
     struct node *temp;
     temp = p->head;
     while (temp != NULL)
     {
-        if ((temp->compo).priority > priority_value)
+        if ((temp->compo).priority > value)
         {
-            priority_value = (temp->compo).priority;
+            value = (temp->compo).priority;
         }
         temp = temp->link;
     }
     temp = p->head;
     while (1)
     {
-        if ((temp->compo).priority == priority_value)
+        if ((temp->compo).priority == value)
         {
             break;
         }
@@ -42,20 +42,20 @@ struct node *high(struct queue *p)
 struct node *low(struct queue *p)
 {
     struct node *temp;
-    int priority_value = ((p->head)->compo).priority;
+    int value = ((p->head)->compo).priority;
     temp = p->head;
     while (temp != NULL)
     {
-        if ((temp->compo).priority < priority_value)
+        if ((temp->compo).priority < value)
         {
-            priority_value = (temp->compo).priority;
+            value = (temp->compo).priority;
         }
         temp = temp->link;
     }
     temp = p->head;
     while (1)
     {
-        if ((temp->compo).priority == priority_value)
+        if ((temp->compo).priority == value)
         {
             break;
         }
