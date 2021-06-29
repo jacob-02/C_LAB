@@ -11,11 +11,11 @@ struct node
     struct component compo;
     struct node *link;
 };
-struct priority_queue
+struct queue
 {
     struct node *head;
 };
-struct node *highest_priority(struct priority_queue *p)
+struct node *high(struct queue *p)
 {
     int priority_value = ((p->head)->compo).priority;
     struct node *temp;
@@ -39,7 +39,7 @@ struct node *highest_priority(struct priority_queue *p)
     }
     return temp;
 }
-struct node *lowest_priority(struct priority_queue *p)
+struct node *low(struct queue *p)
 {
     struct node *temp;
     int priority_value = ((p->head)->compo).priority;
@@ -63,7 +63,7 @@ struct node *lowest_priority(struct priority_queue *p)
     }
     return temp;
 }
-void enqueue(struct priority_queue *p)
+void enqueue(struct queue *p)
 {
     char det[20];
     int priority;
@@ -74,11 +74,11 @@ void enqueue(struct priority_queue *p)
     struct node *temp;
     struct node *newnode;
     struct node *new;
-    new = lowest_priority(p);
+    new = low(p);
     newnode = (struct node *)malloc(sizeof(struct node));
     temp = (struct node *)malloc(sizeof(struct node));
     temp->link = p->head;
-    while (temp->link != lowest_priority(p))
+    while (temp->link != low(p))
     {
         temp = temp->link;
     }
@@ -96,17 +96,17 @@ void enqueue(struct priority_queue *p)
         p->head = newnode;
     }
 }
-void dequeue(struct priority_queue *p)
+void dequeue(struct queue *p)
 {
     struct node *temp;
     temp = (struct node *)malloc(sizeof(struct node));
     temp->link = p->head;
-    while (temp->link != highest_priority(p))
+    while (temp->link != high(p))
     {
         temp = temp->link;
     }
     struct node *new;
-    new = highest_priority(p);
+    new = high(p);
     int k = 0;
     if (temp->link == p->head)
     {
@@ -121,7 +121,7 @@ void dequeue(struct priority_queue *p)
         temp->link = new->link;
     }
 }
-void display(struct priority_queue *p)
+void display(struct queue *p)
 {
     struct node *temp;
     temp = p->head;
@@ -131,7 +131,7 @@ void display(struct priority_queue *p)
         temp = temp->link;
     }
 }
-void init(struct priority_queue *p, char head_set[100], int head_priority)
+void init(struct queue *p, char head_set[100], int head_priority)
 {
     struct node *temp;
     temp = (struct node *)malloc(sizeof(struct node));
@@ -141,7 +141,7 @@ void init(struct priority_queue *p, char head_set[100], int head_priority)
 }
 int main()
 {
-    struct priority_queue *p, queue1;
+    struct queue *p, queue1;
     p = &queue1;
     char s[100];
     int n;
