@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
         printf("Cannot find the requested file\n");
         return 1;
     }
-    ft = fopen("def.txt", "w");
+    ft = fopen(argv[2], "w");
 
     if (ft == NULL)
     {
