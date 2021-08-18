@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "Question3_uniqueElement.h"
 
 void uniqueElement(int a[], int n)
 {

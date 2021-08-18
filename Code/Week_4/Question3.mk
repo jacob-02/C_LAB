@@ -1,4 +1,4 @@
-a:Question3.o Question3_uniqueElement.o
+a.out:Question3.o Question3_uniqueElement.o
 	gcc Question3.o Question3_uniqueElement.o
 
 Question3.o: Question3.c

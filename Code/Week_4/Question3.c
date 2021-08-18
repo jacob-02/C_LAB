@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "Question3_uniqueElement.c"
+#include "Question3_uniqueElement.h"
 
 int main()
 {
